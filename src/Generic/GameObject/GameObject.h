@@ -16,16 +16,16 @@ class GameObject
 {
 private:
 public:
-    virtual void serialise   () const noexcept = 0;
-    virtual void deserialise () noexcept = 0;
-    virtual void update      () noexcept = 0;
-    virtual void render      () noexcept = 0;
+    //virtual void serialise   () const noexcept = 0;
+    //virtual void deserialise () noexcept = 0;
+    //virtual void update      () noexcept = 0;
+    //virtual void render      () noexcept = 0;
 
     explicit virtual operator TypeInfoRef  () const noexcept;
 
-    virtual ~GameObject () { delete anim; }
+    //virtual ~GameObject () { delete anim; }
 protected:
-    Animator* anim;
+    //Animator* anim;
 };
 
 

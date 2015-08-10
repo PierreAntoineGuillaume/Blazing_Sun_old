@@ -26,7 +26,7 @@ namespace nsInformation
         void update ();
         void update (byte_pair newFormat) noexcept;
 
-        void operator << (const nsInformation::FilePath & fp) noexcept;
+        InformationHolder& operator << (const nsInformation::FilePath & fp) noexcept;
 
     private:
         std::vector<FilePath> dirs;

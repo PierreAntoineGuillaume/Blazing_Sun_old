@@ -53,9 +53,8 @@ nsInformation::InformationHolder::InformationHolder (const GameObject & go) :
 
 }
 
-void nsInformation::InformationHolder::operator << (const nsInformation::FilePath & fp) noexcept
+InformationHolder& nsInformation::InformationHolder::operator << (const nsInformation::FilePath & fp) noexcept
 {
     dirs.push_back (fp);
+    return *this;
 }
-
-
