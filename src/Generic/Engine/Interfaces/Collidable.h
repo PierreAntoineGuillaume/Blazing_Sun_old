@@ -18,7 +18,6 @@ namespace nsInterfaces
         virtual bool collides (const Collidable & other) const noexcept = 0;
         virtual ~Collidable ()
         {
-
                 delete col;
         }
 

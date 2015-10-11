@@ -6,6 +6,7 @@
 
 #include "../Utility/Typedef.hpp"
 #include "../Utility/vector3.hpp"
+#include "../Utility/Holder.hpp"
 
 namespace nsEngine
 {
@@ -42,7 +43,7 @@ namespace nsEngine
     {
         friend class Collider_Comparator;
     private:
-        std::vector<nsUtil::vector3U> points;
+        nsUtil::Holder<std::vector<nsUtil::vector3U>> points;
     public:
 
         Polygon (std::vector<nsUtil::vector3U> ppoints);

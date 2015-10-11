@@ -35,7 +35,7 @@ namespace nsUtil
     }
 
     template <class T>
-    void Holder::save () noexcept
+    void Holder<T>::save () noexcept
     {
         val = *temporary;
         delete temporary;
@@ -69,7 +69,7 @@ namespace nsUtil
     }
 
     template <class T>
-    Holder<T>::Holder (const T & val) : Holder<T>::val (val)
+    Holder<T>::Holder (const T & pval) noexcept : val (pval)
     {
 
     }
