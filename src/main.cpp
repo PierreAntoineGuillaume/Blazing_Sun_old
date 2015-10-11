@@ -3,6 +3,9 @@
 #include <SFML/Window.hpp>
 
 #include "Generic/ResourceManager/ResourceManager.h"
+#include "Generic/Utility/vector3.h"
+
+#include <stack>
 
 using namespace std;
 using nsRS::ResourceManager;
@@ -14,7 +17,11 @@ namespace
 }
 int main ()
 {
+    std::stack<std::vector<nsUtil::vector3>> stack;
+    std::vector<nsUtil::vector3> test;
 
+
+    cout << sizeof(stack) << endl;
     cout << "Hello, World!" << endl;
 
     ResourceManager *RSmanager = ResourceManager::Instance ();

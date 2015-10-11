@@ -31,7 +31,10 @@ set(SOURCE_FILES
         src/Generic/Utility/GameException.h
         src/Generic/Engine/Interfaces/Collidable.h
         src/Generic/Engine/Collider.cpp
-        src/Generic/Engine/Collider.h src/Generic/Utility/vector3.cpp src/Generic/Utility/vector3.h)
+        src/Generic/Engine/Collider.h
+        src/Generic/Utility/vector3.cpp
+        src/Generic/Utility/vector3.h
+        src/Generic/Utility/Holder.hpp)
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 

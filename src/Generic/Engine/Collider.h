@@ -13,11 +13,11 @@ namespace nsEngine
 
     /**/
 
-
-
+    class Collider_Comparator;
 
     class Collider
     {
+        friend class Collider_Comparator;
     private:
     public:
 
@@ -37,11 +37,20 @@ namespace nsEngine
     /**/
     class Polygon : public Collider
     {
+        friend class Collider_Comparator;
     private:
-        nsUtil::vector3 * points;
+        std::vector<nsUtil::vector3> points;
     public:
+
         Polygon (std::vector<nsUtil::vector3> ppoints);
         virtual ~Polygon () noexcept;
+    };
+
+    class Collider_Comparator
+    {
+    public:
+        bool operator()(const Polygon & first,const Polygon & sec) const noexcept;
+
     };
 
 

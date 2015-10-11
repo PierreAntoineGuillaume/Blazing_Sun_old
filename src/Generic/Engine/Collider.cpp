@@ -5,24 +5,26 @@
 #include "Collider.h"
 #include <vector>
 
-
 using nsUtil::vector3;
+using nsEngine::Polygon;
+using nsEngine::Collider;
+using nsEngine::Collider_Comparator;
 
 
-nsEngine::Polygon::Polygon (std::vector<vector3> ppoints)
+Polygon::Polygon (std::vector<vector3> ppoints) : points (ppoints)
 {
-    points = new vector3[ppoints.size()];
-    unsigned int i = 0;
     for (vector3 p : ppoints)
     {
-        points[i++] = p;
         center = center + p;
     }
     center = center / ppoints.size();
 }
 
-nsEngine::Polygon::~Polygon ()
+Polygon::~Polygon ()
 {
-    delete[] points;
 }
 
+bool Collider_Comparator::operator () (const Polygon & first, const Polygon & sec) const noexcept
+{
+    return false;
+}
