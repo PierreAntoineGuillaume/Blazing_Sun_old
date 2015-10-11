@@ -2,8 +2,7 @@
 // Created by Pierre-Antoine on 09/08/2015.
 //
 
-#ifndef BLAZING_SUN_TYPECOMPARISONSTRUCT_HPP
-#define BLAZING_SUN_TYPECOMPARISONSTRUCT_HPP
+#pragma once
 
 #include <cstddef>
 #include "Typedef.hpp"
@@ -25,34 +24,4 @@ namespace nsComparisonStruct
             return lhs.get () == rhs.get ();
         }
     };
-    /*
-    struct GenericallyComparable
-    {
-        virtual operator ComparisonOperator () const noexcept = 0;
-    };
-
-    struct QuickComparison
-    {
-        bool AgreaterThanB (const ComparisonOperator & a, const ComparisonOperator & b)
-        {
-            return a > b;
-        }
-
-        bool AlesserThanB (const ComparisonOperator & a, const ComparisonOperator & b)
-        {
-            return a < b;
-        }
-
-        bool AdifferentFromB (const ComparisonOperator & a, const ComparisonOperator & b)
-        {
-            return a != b;
-        }
-
-        bool AequalsB (const ComparisonOperator & a, const ComparisonOperator & b)
-        {
-            return a == b;
-        }
-    };
-    */
 }
-#endif //BLAZING_SUN_TYPECOMPARISONSTRUCT_HPP
