@@ -2,28 +2,48 @@
 // Created by Pierre-Antoine on 08/08/2015.
 //
 
-#ifndef BLAZING_SUN_COLLIDER_H
-#define BLAZING_SUN_COLLIDER_H
+#pragma once
 
 #include "../Utility/Typedef.hpp"
+#include "../Utility/vector3.h"
 
 namespace nsEngine
 {
+    
+
+    /**/
+
+
+
+
     class Collider
     {
     private:
     public:
+
         Collider () {}
         virtual ~Collider () noexcept {}
+
+        virtual Collider * clone () noexcept = 0;
+
+        virtual void move (const nsUtil::vector3 & vect) noexcept = 0;
+
+        //TODO
+        virtual void rotate () noexcept {}
     protected:
+        nsUtil::vector3 center = nsUtil::vector3();
     };
 
-    class Rectangle : public Collider
+    /**/
+    class Polygon : public Collider
     {
+    private:
+        nsUtil::vector3 * points;
     public:
-        Rectangle () {}
-        virtual ~Rectangle () noexcept {}
+        Polygon (std::vector<nsUtil::vector3> ppoints);
+        virtual ~Polygon () noexcept;
     };
-}
 
-#endif //BLAZING_SUN_COLLIDER_H
+
+/**/
+}

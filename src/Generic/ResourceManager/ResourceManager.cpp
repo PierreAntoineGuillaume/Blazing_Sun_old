@@ -10,12 +10,10 @@ using namespace std;
 
 ResourceManager::ResourceManager ()
 {
-    cout << "Construction" << endl;
 }
 
 ResourceManager::~ResourceManager ()
 {
-    cout << "Destruction" << endl;
 }
 
 ResourceManager * ResourceManager::Instance ()
@@ -24,7 +22,4 @@ ResourceManager * ResourceManager::Instance ()
     return &instance;
 }
 
-void ResourceManager::linkGameObjectToRessource (GameObject & go, const nsInformation::InformationHolder & provider)
-{
-
-}
+//void ResourceManager::linkGameObjectToRessource (GameObject & go) {}

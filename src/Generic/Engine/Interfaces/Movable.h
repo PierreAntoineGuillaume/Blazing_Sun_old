@@ -2,17 +2,18 @@
 // Created by Pierre-Antoine on 08/08/2015.
 //
 
-#ifndef BLAZING_SUN_MOVABLE_H
-#define BLAZING_SUN_MOVABLE_H
+#pragma once
 
 #include <memory>
 #include <vector>
 
 #include "../../Engine/Movement.h"
+#include "Collidable.h"
+#include "../Movement.h"
 
 namespace nsInterfaces
 {
-    class Movable
+    class Movable : public Collidable
     {
     public:
         virtual void move () noexcept = 0;
@@ -25,8 +26,3 @@ namespace nsInterfaces
 typedef std::unique_ptr<nsInterfaces::Movable>      uptMovable;
 typedef std::shared_ptr<nsInterfaces::Movable>      sptMovable;
 typedef std::vector<sptMovable>                     MovableVector;
-
-
-
-
-#endif //BLAZING_SUN_MOVABLE_H
