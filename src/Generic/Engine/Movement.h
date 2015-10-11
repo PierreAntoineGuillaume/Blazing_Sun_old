@@ -15,20 +15,18 @@ namespace nsEngine
     {
     public:
         Movement ();
-        Movement (float p_maximum_speed);
-        void append (float p_vertical, float p_horizontal) noexcept;
-        void change_maximum_speed_to (float p_maximum_speed);
-        void change_deceleration_to (float p_deceleration);
+        Movement (nsUtil::vector3U p_maximum_speed);
+        void append (nsUtil::vector3U pspeed) noexcept;
+        void change_maximum_speed_to (nsUtil::vector3U p_maximum_speed);
+        void change_deceleration_to (nsUtil::vector3U p_deceleration);
         void update (void) noexcept;
 
-        float horizontal_variation () const noexcept;
-        float vertical_variation () const noexcept;
+        nsUtil::vector3U variation () const noexcept;
 
-        void try_movement_on_collidable (const nsInterfaces::Collidable & col);
     private:
-        nsUtil::vector3f speed;
-        nsUtil::vector3f maximum_speed;
-        nsUtil::vector3f deceleration = nsUtil::vector3f(1,1,0);
+        nsUtil::vector3U speed;
+        nsUtil::vector3U maximum_speed;
+        nsUtil::vector3U deceleration = nsUtil::vector3U(1,1 DIMMP(1));
 
 
     protected:
