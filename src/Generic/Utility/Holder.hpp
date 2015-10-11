@@ -14,6 +14,7 @@ namespace nsUtil
     public:
 
         void store (const T value) noexcept;
+        void save  () noexcept;
         void release() noexcept;
 
         operator T & () noexcept;
@@ -31,6 +32,15 @@ namespace nsUtil
         if (temporary)
             delete temporary;
         temporary = new T(value);
+    }
+
+    template <class T>
+    void Holder::save () noexcept
+    {
+        val = *temporary;
+        delete temporary;
+        temporary = nullptr;
+
     }
 
     template <class T>
