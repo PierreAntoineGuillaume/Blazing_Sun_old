@@ -12,11 +12,11 @@
 
 #ifdef D2
     #define DIMM(a)
-    #define DIMMP(a)
+    #define DIMMC(a)
 
 #else
     #define D3
     #define DIMM(a) a
-    #define DIMMP(a) , a
+    #define DIMMC(a) , a
 #endif
 

@@ -18,8 +18,8 @@ namespace
 }
 int main ()
 {
-    std::stack<std::vector<nsUtil::vector3f>> stack;
-    std::vector<nsUtil::vector3f> test;
+    std::stack<std::vector<nsUtil::vector3U>> stack;
+    std::vector<nsUtil::vector3U> test;
 
 
     cout << sizeof(stack) << endl;

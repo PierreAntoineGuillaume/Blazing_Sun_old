@@ -25,7 +25,7 @@ namespace nsEngine
         virtual ~Collider () noexcept {}
 
 
-        virtual void attemptMove(const nsUtil::vector3f & vect) noexcept = 0;
+        virtual void attemptMove(const nsUtil::vector3U & vect) noexcept = 0;
         virtual void move () noexcept = 0;
 
         //TODO
@@ -34,7 +34,7 @@ namespace nsEngine
         virtual void rotate () noexcept {}
 
     protected:
-        nsUtil::vector3f center = nsUtil::vector3f();
+        nsUtil::vector3U center = nsUtil::vector3U();
     };
 
     /**/
@@ -42,10 +42,10 @@ namespace nsEngine
     {
         friend class Collider_Comparator;
     private:
-        std::vector<nsUtil::vector3f> points;
+        std::vector<nsUtil::vector3U> points;
     public:
 
-        Polygon (std::vector<nsUtil::vector3f> ppoints);
+        Polygon (std::vector<nsUtil::vector3U> ppoints);
         virtual ~Polygon () noexcept;
     };
 
