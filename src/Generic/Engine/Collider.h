@@ -29,7 +29,10 @@ namespace nsEngine
         virtual void move () noexcept = 0;
 
         //TODO
+        virtual void attemptRotation () noexcept {}
+        //TODO
         virtual void rotate () noexcept {}
+
     protected:
         nsUtil::vector3f center = nsUtil::vector3f();
     };
