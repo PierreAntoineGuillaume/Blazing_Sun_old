@@ -24,9 +24,9 @@ namespace nsEngine
         Collider () {}
         virtual ~Collider () noexcept {}
 
-        virtual Collider * clone () noexcept = 0;
 
-        virtual void move (const nsUtil::vector3f & vect) noexcept = 0;
+        virtual void attemptMove(const nsUtil::vector3f & vect) noexcept = 0;
+        virtual void move () noexcept = 0;
 
         //TODO
         virtual void rotate () noexcept {}
