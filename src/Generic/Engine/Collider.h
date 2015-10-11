@@ -5,7 +5,7 @@
 #pragma once
 
 #include "../Utility/Typedef.hpp"
-#include "../Utility/vector3.h"
+#include "../Utility/vector3.hpp"
 
 namespace nsEngine
 {
@@ -26,12 +26,12 @@ namespace nsEngine
 
         virtual Collider * clone () noexcept = 0;
 
-        virtual void move (const nsUtil::vector3 & vect) noexcept = 0;
+        virtual void move (const nsUtil::vector3f & vect) noexcept = 0;
 
         //TODO
         virtual void rotate () noexcept {}
     protected:
-        nsUtil::vector3 center = nsUtil::vector3();
+        nsUtil::vector3f center = nsUtil::vector3f();
     };
 
     /**/
@@ -39,10 +39,10 @@ namespace nsEngine
     {
         friend class Collider_Comparator;
     private:
-        std::vector<nsUtil::vector3> points;
+        std::vector<nsUtil::vector3f> points;
     public:
 
-        Polygon (std::vector<nsUtil::vector3> ppoints);
+        Polygon (std::vector<nsUtil::vector3f> ppoints);
         virtual ~Polygon () noexcept;
     };
 

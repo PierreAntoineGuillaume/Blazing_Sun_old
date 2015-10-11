@@ -3,7 +3,7 @@
 #include <SFML/Window.hpp>
 
 #include "Generic/ResourceManager/ResourceManager.h"
-#include "Generic/Utility/vector3.h"
+#include "Generic/Utility/vector3.hpp"
 
 #include <stack>
 
@@ -17,8 +17,8 @@ namespace
 }
 int main ()
 {
-    std::stack<std::vector<nsUtil::vector3>> stack;
-    std::vector<nsUtil::vector3> test;
+    std::stack<std::vector<nsUtil::vector3f>> stack;
+    std::vector<nsUtil::vector3f> test;
 
 
     cout << sizeof(stack) << endl;

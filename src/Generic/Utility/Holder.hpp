@@ -26,7 +26,7 @@ namespace nsUtil
     };
 
     template <class T>
-    void Holder::store(const T value) noexcept
+    void Holder<T>::store(const T value) noexcept
     {
         if (temporary)
             delete temporary;
@@ -34,7 +34,7 @@ namespace nsUtil
     }
 
     template <class T>
-    void Holder::release () noexcept
+    void Holder<T>::release () noexcept
     {
         if (temporary)
         {
@@ -44,7 +44,7 @@ namespace nsUtil
     }
 
     template <class T>
-    Holder::operator T & () noexcept
+    Holder<T>::operator T & () noexcept
     {
         if (temporary)
             return *temporary;
@@ -53,19 +53,19 @@ namespace nsUtil
     }
 
     template <class T>
-    Holder::Holder () : val (T())
+    Holder<T>::Holder () : val (T())
     {
 
     }
 
     template <class T>
-    Holder::Holder (const T & val) : Holder::val (val)
+    Holder<T>::Holder (const T & val) : Holder<T>::val (val)
     {
 
     }
 
     template <class T>
-    Holder::~Holder ()
+    Holder<T>::~Holder ()
     {
         if (temporary)
             delete temporary;
