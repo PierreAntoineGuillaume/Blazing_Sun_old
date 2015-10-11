@@ -1,34 +1,52 @@
 cmake_minimum_required(VERSION 3.2)
-project(Blazing_Sun)
-#message(WARNING ${CMAKE_MODULE_PATH})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")#-mwindows")
+set(PROJECT_NAME Blazing_Sun)
+
+project(${PROJECT_NAME})
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Module")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
-set(SOURCE_FILES src/main.cpp)
 
-set(EXECUTABLE_NAME Blazing_Sun)
+set(SOURCE_FILES
+        src/main.cpp
+        src/Generic/Engine/Collider.cpp
+        src/Generic/Engine/Collider.h
+        src/Generic/ResourceManager/ResourceManager.cpp
+        src/Generic/ResourceManager/ResourceManager.h
+        src/Generic/GameObject/GameObject.cpp
+        src/Generic/GameObject/GameObject.h
+        src/Generic/ResourceManager/Animator.cpp
+        src/Generic/ResourceManager/Animator.h
+        src/Generic/Engine/Interfaces/Movable.h
+        src/Generic/Engine/Interfaces/Collidable.h
+        src/Generic/Engine/Movement.cpp
+        src/Generic/Engine/Movement.h
+        src/Generic/Utility/Typedef.hpp
+        src/Generic/Utility/TypeComparisonStruct.hpp
+        src/Generic/Utility/GameException.cpp
+        src/Generic/Utility/GameException.h
+        src/Generic/Engine/Interfaces/Collidable.h
+        src/Generic/Engine/Collider.cpp
+        src/Generic/Engine/Collider.h src/Generic/Utility/vector3.cpp src/Generic/Utility/vector3.h)
 
-add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES}
-
-src/Generic/ResourceManager/ResourceManager.cpp
-src/Generic/ResourceManager/ResourceManager.h
-src/Generic/GameObject/GameObject.cpp
-src/Generic/GameObject/GameObject.h
-src/Generic/ResourceManager/Animator.cpp
-src/Generic/ResourceManager/Animator.h
-src/Generic/Engine/Interfaces/Movable.h
-src/Generic/Engine/Interfaces/Collidable.h
-src/Generic/Engine/Collider.cpp
-src/Generic/Engine/Collider.h
-src/Generic/Engine/Movement.cpp
-src/Generic/Engine/Movement.h
-src/Generic/Utility/Typedef.hpp
-src/Generic/Utility/TypeComparisonStruct.hpp
-src/Generic/ResourceManager/Information/FilePath.cpp
-src/Generic/ResourceManager/Information/FilePath.h src/Generic/ResourceManager/Information/InformationHolder.cpp src/Generic/ResourceManager/Information/InformationHolder.h src/Generic/Utility/GameException.cpp src/Generic/Utility/GameException.h)
+set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 
-include(configSFMLMakefileHelper.txt)
+add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
+SET_TARGET_PROPERTIES(Blazing_Sun PROPERTIES LINKER_LANGUAGE CXX)
+
+
+set(SFML_ROOT C:/lib/SFML-2.3.2)
+find_package(SFML 2 REQUIRED audio graphics network window system)
+
+
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+endif()
 
