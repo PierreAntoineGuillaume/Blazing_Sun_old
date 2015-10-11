@@ -6,6 +6,7 @@
 
 
 #include "Interfaces/Collidable.h"
+#include "../Utility/vector3.hpp"
 
 namespace nsEngine
 {
@@ -25,10 +26,9 @@ namespace nsEngine
 
         void try_movement_on_collidable (const nsInterfaces::Collidable & col);
     private:
-        float vertical_speed = 0;
-        float horizontal_speed = 0;
-        float maximum_speed;
-        float deceleration = 1;
+        nsUtil::vector3f speed;
+        nsUtil::vector3f maximum_speed;
+        nsUtil::vector3f deceleration = nsUtil::vector3f(1,1,0);
 
 
     protected:
