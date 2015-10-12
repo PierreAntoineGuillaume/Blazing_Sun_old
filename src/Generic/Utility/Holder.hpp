@@ -27,7 +27,7 @@ namespace nsUtil
     };
 
     template <class T>
-    void Holder<T>::store(const T value) noexcept
+    void Holder<T>::store(const T & value) noexcept
     {
         if (temporary)
             delete temporary;
