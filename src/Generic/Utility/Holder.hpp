@@ -13,7 +13,7 @@ namespace nsUtil
         T* temporary;
     public:
 
-        void store (const T value) noexcept;
+        void store (const T & value) noexcept;
         void save  () noexcept;
         void release() noexcept;
 
