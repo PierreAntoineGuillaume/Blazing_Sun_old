@@ -9,6 +9,7 @@ namespace nsUtil
     template<class T>
     class Holder
     {
+        typedef T value_type;
         T val;
         T* temporary;
     public:
