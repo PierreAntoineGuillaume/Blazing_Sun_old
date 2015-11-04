@@ -5,15 +5,15 @@
 #include "Collider.h"
 #include <vector>
 
-using nsUtil::vector3U;
+using nsUtil::stdpoint;
 using nsEngine::Polygon;
 using nsEngine::Collider;
 using nsEngine::Collider_Comparator;
 
 
-Polygon::Polygon (std::vector<vector3U> ppoints) : points (ppoints)
+Polygon::Polygon (std::vector<stdpoint> ppoints) : points (ppoints)
 {
-    for (vector3U p : ppoints)
+    for (stdpoint p : ppoints)
     {
         center = center + p;
     }

@@ -5,7 +5,7 @@
 #endif //GRENABLED
 
 #include "Generic/ResourceManager/ResourceManager.h"
-#include "Generic/Utility/vector3.hpp"
+#include "Generic/Utility/point.hpp"
 
 #include <stack>
 
@@ -20,9 +20,8 @@ namespace
 }
 int main ()
 {
-    std::stack<std::vector<nsUtil::vector3U>> stack;
-    std::vector<nsUtil::vector3U> test;
-
+    std::stack<std::vector<nsUtil::stdpoint>> stack;
+    std::vector<nsUtil::stdpoint> test;
 
     cout << sizeof(stack) << endl;
     cout << "Hello, World!" << endl;

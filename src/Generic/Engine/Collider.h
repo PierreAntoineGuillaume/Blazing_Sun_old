@@ -5,8 +5,8 @@
 #pragma once
 
 #include "../Utility/Typedef.hpp"
-#include "../Utility/vector3.hpp"
 #include "../Utility/Holder.hpp"
+#include "../Utility/point.hpp"
 
 namespace nsEngine
 {
@@ -26,7 +26,7 @@ namespace nsEngine
         virtual ~Collider () noexcept {}
 
 
-        virtual void attemptMove(const nsUtil::vector3U & vect) noexcept = 0;
+        virtual void attemptMove(const nsUtil::stdpoint & vect) noexcept = 0;
         virtual void move () noexcept = 0;
 
         //TODO
@@ -35,7 +35,7 @@ namespace nsEngine
         virtual void rotate () noexcept {}
 
     protected:
-        nsUtil::vector3U center = nsUtil::vector3U();
+        nsUtil::stdpoint center = nsUtil::stdpoint();
     };
 
     /**/
@@ -43,10 +43,10 @@ namespace nsEngine
     {
         friend class Collider_Comparator;
     private:
-        nsUtil::Holder<std::vector<nsUtil::vector3U>> points;
+        nsUtil::Holder<std::vector<nsUtil::stdpoint>> points;
     public:
 
-        Polygon (std::vector<nsUtil::vector3U> ppoints);
+        Polygon (std::vector<nsUtil::stdpoint> ppoints);
         virtual ~Polygon () noexcept;
     };
 

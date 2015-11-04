@@ -6,7 +6,7 @@
 
 
 #include "Interfaces/Collidable.h"
-#include "../Utility/vector3.hpp"
+#include "../Utility/point.hpp"
 
 namespace nsEngine
 {
@@ -15,18 +15,18 @@ namespace nsEngine
     {
     public:
         Movement ();
-        Movement (nsUtil::vector3U p_maximum_speed);
-        void append (nsUtil::vector3U pspeed) noexcept;
-        void change_maximum_speed_to (nsUtil::vector3U p_maximum_speed);
-        void change_deceleration_to (nsUtil::vector3U p_deceleration);
+        Movement (nsUtil::stdpoint p_maximum_speed);
+        void append (nsUtil::stdpoint pspeed) noexcept;
+        void change_maximum_speed_to (nsUtil::stdpoint p_maximum_speed);
+        void change_deceleration_to (nsUtil::stdpoint p_deceleration);
         void update (void) noexcept;
 
-        nsUtil::vector3U variation () const noexcept;
+        nsUtil::stdpoint variation () const noexcept;
 
     private:
-        nsUtil::vector3U speed;
-        nsUtil::vector3U maximum_speed;
-        nsUtil::vector3U deceleration = nsUtil::vector3U();
+        nsUtil::stdpoint speed;
+        nsUtil::stdpoint maximum_speed;
+        nsUtil::stdpoint deceleration = nsUtil::stdpoint();
 
 
     protected:
