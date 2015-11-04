@@ -21,7 +21,7 @@ namespace nsUtil
         T p [D];
     public:
 
-        typedef T type;
+        typedef T value_type;
         static const unsigned char dimension = D;
 
         pvector ();
