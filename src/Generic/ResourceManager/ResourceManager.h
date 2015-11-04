@@ -6,9 +6,10 @@
 #include <memory> //smart Pointers
 #include <vector>
 #include <unordered_map>
-
+#ifdef GRENABLED
 #include "SFML/Graphics/Image.hpp"
 #include "SFML/Graphics/Texture.hpp"
+#endif //GRENABLED
 #include "../Utility/Typedef.hpp"
 #include "../Utility/TypeComparisonStruct.hpp"
 #include "../GameObject/GameObject.h"

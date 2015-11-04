@@ -26,7 +26,7 @@ namespace nsEngine
     private:
         nsUtil::vector3U speed;
         nsUtil::vector3U maximum_speed;
-        nsUtil::vector3U deceleration = nsUtil::vector3U(1,1 DIMMC(1));
+        nsUtil::vector3U deceleration = nsUtil::vector3U();
 
 
     protected:

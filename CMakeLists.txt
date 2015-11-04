@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
+
 set(PROJECT_NAME Blazing_Sun)
 
 project(${PROJECT_NAME})
@@ -42,13 +43,14 @@ add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
 SET_TARGET_PROPERTIES(Blazing_Sun PROPERTIES LINKER_LANGUAGE CXX)
 
+#set (GRENABLED)
+if (GRENABLED)
+    set(SFML_ROOT C:/lib/SFML-2.3.2)
+    find_package(SFML 2 REQUIRED audio graphics network window system)
+    add_definition(-DGRENABLED)
 
-set(SFML_ROOT C:/lib/SFML-2.3.2)
-find_package(SFML 2 REQUIRED audio graphics network window system)
-
-
-if(SFML_FOUND)
-    include_directories(${SFML_INCLUDE_DIR})
-    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
-endif()
-
+    if(SFML_FOUND)
+        include_directories(${SFML_INCLUDE_DIR})
+        target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+    endif(SFML_FOUND)
+endif(GRENABLED)
