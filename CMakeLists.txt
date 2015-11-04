@@ -33,7 +33,7 @@ set(SOURCE_FILES
         src/Generic/Engine/Interfaces/Collidable.h
         src/Generic/Engine/Collider.cpp
         src/Generic/Engine/Collider.h
-        src/Generic/Utility/vector3.hpp
+        src/Generic/Utility/point.hpp
         src/Generic/Utility/Holder.hpp src/Specific/MACROS.h)
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
