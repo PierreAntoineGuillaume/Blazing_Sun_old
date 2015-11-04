@@ -46,7 +46,7 @@ void Movement::update (void) noexcept
 
     speed = speed - deceleration;
 
-    const vector3U::type zero = 0.1f;
+    const vector3U::type zero = vector3U::type(0.1f);
 
     for (unsigned char i {0}; i < vector3U::dimension;++i)
         if (std::abs(speed[i]) < zero)
