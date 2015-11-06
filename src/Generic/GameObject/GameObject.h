@@ -25,6 +25,3 @@ public:
 protected:
     Animator* anim;
 };
-
-
-#endif //BLAZING_SUN_GAMEOBJECT_H
