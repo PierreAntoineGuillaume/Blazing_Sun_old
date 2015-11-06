@@ -2,8 +2,7 @@
 // Created by Pierre-Antoine on 08/08/2015.
 //
 
-#ifndef BLAZING_SUN_ANIMATOR_H
-#define BLAZING_SUN_ANIMATOR_H
+#pragma once
 
 
 #include <vector>
@@ -26,6 +25,3 @@ private:
 #endif //GRENABLED
 protected:
 };
-
-
-#endif //BLAZING_SUN_ANIMATOR_H
