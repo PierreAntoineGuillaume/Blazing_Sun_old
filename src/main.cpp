@@ -30,7 +30,6 @@ int main ()
 
     ResourceManager *RSmanager = ResourceManager::Instance ();
 
-#ifdef GRENABLED
 
     sf::Window window(sf::VideoMode(800, 600), "My window");
 
@@ -47,7 +46,6 @@ int main ()
                 window.close();
         }
     }
-#endif //GRENABLED
 
 
     return 0;
