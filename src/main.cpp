@@ -20,6 +20,10 @@ namespace
 }
 int main ()
 {
+    nsUtil::geometric_point<int,2> a {{1},{3}};
+    cout << "test : " << endl;
+    cout << a[1] << endl;
+
     std::stack<std::vector<nsUtil::stdpoint>> stack;
     std::vector<nsUtil::stdpoint> test;
 
