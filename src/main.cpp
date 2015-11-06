@@ -3,9 +3,6 @@
 #include <SFML/Window.hpp>
 
 #include "Generic/ResourceManager/ResourceManager.h"
-#include "Generic/Utility/point.hpp"
-
-#include <stack>
 
 
 using namespace std;
@@ -18,15 +15,6 @@ namespace
 }
 int main ()
 {
-    nsUtil::geometric_point<int,2> a {{1},{3}};
-    cout << "test : " << endl;
-    cout << a[1] << endl;
-
-    std::stack<std::vector<nsUtil::stdpoint>> stack;
-    std::vector<nsUtil::stdpoint> test;
-
-    cout << sizeof(stack) << endl;
-    cout << "Hello, World!" << endl;
 
     ResourceManager *RSmanager = ResourceManager::Instance ();
 
@@ -37,7 +25,7 @@ int main ()
     // on fait tourner le programme jusqu'� ce que la fen�tre soit ferm�e
     while (window.isOpen())
     {
-        // on inspecte tous les �v�nements de la fen�tre qui ont �t� �mis depuis la pr�c�dente it�ration
+        // on inspecte tous les événements de la fenêtre qui ont été émis depuis la précédente itération
         sf::Event event;
         while (window.pollEvent(event))
         {
