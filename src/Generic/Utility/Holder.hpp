@@ -14,9 +14,10 @@ namespace nsUtil
         T* temporary;
     public:
 
-        void store (const T & value) noexcept;
-        void save  () noexcept;
-        void release() noexcept;
+        void push (const T & value) noexcept;
+        void overwrite  () noexcept;
+        void pop () noexcept;
+        void replicate () noexcept;
 
         operator T & () noexcept;
 
@@ -28,7 +29,7 @@ namespace nsUtil
     };
 
     template <class T>
-    void Holder<T>::store(const T & value) noexcept
+    void Holder<T>::push(const T & value) noexcept
     {
         if (temporary)
             delete temporary;
@@ -36,7 +37,7 @@ namespace nsUtil
     }
 
     template <class T>
-    void Holder<T>::save () noexcept
+    void Holder<T>::overwrite () noexcept
     {
         val = *temporary;
         delete temporary;
@@ -45,13 +46,19 @@ namespace nsUtil
     }
 
     template <class T>
-    void Holder<T>::release () noexcept
+    void Holder<T>::pop () noexcept
     {
         if (temporary)
         {
             delete temporary;
             temporary = nullptr;
         }
+    }
+
+    template <typename T>
+    void Holder<T>::replicate () noexcept
+    {
+        push (val);
     }
 
     template <class T>
