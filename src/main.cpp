@@ -1,8 +1,6 @@
 #include <iostream>
 
-#ifdef GRENABLED
-    #include <SFML/Window.hpp>
-#endif //GRENABLED
+#include <SFML/Window.hpp>
 
 #include "Generic/ResourceManager/ResourceManager.h"
 #include "Generic/Utility/point.hpp"
