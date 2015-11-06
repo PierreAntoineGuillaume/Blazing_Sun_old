@@ -21,8 +21,8 @@ namespace nsRS
     private:
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Singleton;
-        ResourceManager& operator= (const ResourceManager& ){}
-        ResourceManager (const ResourceManager&) {};
+        ResourceManager& operator= (const ResourceManager& ) = default;
+        ResourceManager (const ResourceManager&) = default;
 
         //std::unordered_map<TypeInfoRef, nsComparisonStruct::Hasher, nsComparisonStruct::EqualTo> type_map;
         ~ResourceManager ();
