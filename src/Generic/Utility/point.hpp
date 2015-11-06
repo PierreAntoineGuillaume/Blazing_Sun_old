@@ -49,8 +49,6 @@ namespace nsUtil
     geometric_point<T,D>::geometric_point (std::initializer_list<T> initializer_list)
     {
         static_assert (std::is_scalar<T>::value,"The template type parameter has to be scalar");
-        //static_assert (sizeof(initializer_list) / sizeof(T) == D,"You can either use a null constructor or use a c array of size specified in template ");
-
         std::copy (initializer_list.begin (),initializer_list.end(),p);
     }
 
@@ -125,7 +123,5 @@ namespace nsUtil
 
     }
 
-    typedef geometric_point<float,2> geometric_pointfa;
-    typedef geometric_point<int,2> geometric_pointi;
     typedef geometric_point<COORD_TYPE,COORD_NUMBER> stdpoint;
 }//nsUtil
