@@ -7,8 +7,8 @@
 #pragma once
 
 #include "../../Specific/MACROS.h"
-#include <cstdarg>
 #include <type_traits>
+#include <csignal>
 
 namespace nsUtil
 {
@@ -69,6 +69,8 @@ namespace nsUtil
     template <typename T,unsigned char D>
     T& nsUtil::geometric_point<T,D>::operator[](const size_t & index) noexcept
     {
+        if (index >= D)
+            std::raise (SIGSEGV);
         return p[index];
     }
 
