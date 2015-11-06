@@ -6,22 +6,18 @@
 
 
 #include <vector>
-#ifdef GRENABLED
-    #include "SFML/Graphics/Texture.hpp"
-#endif //GRENABLED
+#include "SFML/Graphics/Texture.hpp"
 #include "../Utility/Typedef.hpp"
 
 class Animator
 {
 public:
-#ifdef GRENABLED
-virtual void setSpritesLoop (std::vector<std::vector<std::pair<sf::Texture,byte_t>>> & newHolder) = 0;
-#endif
-    virtual void update () = 0;
-    virtual void render () = 0;
+    virtual void setSpritesLoop (std::vector<std::vector<std::pair<sf::Texture,byte_t>>> & newHolder) = 0;
+    virtual void update () noexcept = 0;
+    virtual void render () const noexcept = 0;
+
+    virtual ~Animator () {}
 private:
-#ifdef GRENABLED
     std::vector<std::vector<std::pair<sf::Texture,byte_t>>> textureLoops;
-#endif //GRENABLED
 protected:
 };

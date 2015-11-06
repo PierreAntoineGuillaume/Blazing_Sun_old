@@ -7,7 +7,7 @@ project(${PROJECT_NAME})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Module")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -Wall -Wextra -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -Wall --pedantic")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
@@ -34,8 +34,9 @@ set(SOURCE_FILES
         src/Generic/Engine/Collider.cpp
         src/Generic/Engine/Collider.h
         src/Generic/Utility/point.hpp
-        src/Generic/Utility/Holder.hpp src/Specific/MACROS.h)
-
+        src/Generic/Utility/Holder.hpp
+        src/Specific/MACROS.h
+        )
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 
@@ -43,14 +44,10 @@ add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
 SET_TARGET_PROPERTIES(Blazing_Sun PROPERTIES LINKER_LANGUAGE CXX)
 
-#set (GRENABLED)
-if (GRENABLED)
-    set(SFML_ROOT C:/lib/SFML-2.3.2)
-    find_package(SFML 2 REQUIRED audio graphics network window system)
-    add_definition(-DGRENABLED)
+set(SFML_ROOT C:/lib/SFML-2.3.2)
+find_package(SFML 2 REQUIRED audio graphics network window system)
 
-    if(SFML_FOUND)
-        include_directories(${SFML_INCLUDE_DIR})
-        target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
-    endif(SFML_FOUND)
-endif(GRENABLED)
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+endif(SFML_FOUND)
