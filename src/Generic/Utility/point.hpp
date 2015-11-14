@@ -9,6 +9,7 @@
 #include "../../Specific/MACROS.h"
 #include <type_traits>
 #include <csignal>
+#include <cmath>
 
 namespace nsUtil
 {
@@ -22,7 +23,7 @@ namespace nsUtil
     class geometric_point
     {
     private:
-        T p [D];
+        T p [D +1];
 
     public:
 
@@ -33,6 +34,8 @@ namespace nsUtil
         geometric_point ();
         ~geometric_point ();
         T& operator[](const size_t & index) noexcept;
+        T absolute_distance() const noexcept;
+
         geometric_point operator+ (const geometric_point & other) const noexcept;
         geometric_point operator- (const geometric_point & other) const noexcept;
         geometric_point operator* (unsigned number) const noexcept;
@@ -50,12 +53,14 @@ namespace nsUtil
     {
         static_assert (std::is_scalar<T>::value,"The template type parameter has to be scalar");
         std::copy (initializer_list.begin (),initializer_list.end(),p);
+        p[D] = 1;
     }
 
     template <typename T,unsigned char D>
     geometric_point<T,D>::geometric_point ()
     {
         static_assert (std::is_scalar<T>::value,"The template type parameter has to be scalar");
+        p[D] = 1;
     }
 
 
@@ -121,6 +126,15 @@ namespace nsUtil
     nsUtil::geometric_point<T,D>::~geometric_point ()
     {
 
+    }
+
+    template <typename T, unsigned char D>
+    T nsUtil::geometric_point<T,D>::absolute_distance() const noexcept
+    {
+        T return_val;
+        for (unsigned char i = 0;i<D;++i)
+            return_val += pow(p[i],2);
+        return sqrt (return_val);
     }
 
     typedef geometric_point<COORD_TYPE,COORD_NUMBER> stdpoint;
