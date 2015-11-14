@@ -11,13 +11,9 @@ using nsEngine::Collider;
 using nsEngine::Collider_Comparator;
 
 
-Polygon::Polygon (std::vector<stdpoint> ppoints) : points (ppoints)
+Polygon::Polygon (nsUtil::stdpolygon ppoints) : points (ppoints)
 {
-    for (stdpoint p : ppoints)
-    {
-        center = center + p;
-    }
-    center = center / ppoints.size();
+
 }
 
 Polygon::~Polygon ()

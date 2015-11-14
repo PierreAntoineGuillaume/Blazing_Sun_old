@@ -19,7 +19,7 @@ namespace nsUtil
         void pop () noexcept;
         void replicate () noexcept;
 
-        operator T & () noexcept;
+        typename std::add_lvalue_reference<T>::type operator *() noexcept;
 
         Holder ();
         Holder (const T & val) noexcept;
@@ -39,6 +39,8 @@ namespace nsUtil
     template <class T>
     void Holder<T>::overwrite () noexcept
     {
+        if (!temporary)
+            return;
         val = *temporary;
         delete temporary;
         temporary = nullptr;
@@ -62,7 +64,7 @@ namespace nsUtil
     }
 
     template <class T>
-    Holder<T>::operator T & () noexcept
+    typename std::add_lvalue_reference<T>::type Holder<T>::operator *() noexcept
     {
         if (temporary)
             return *temporary;

@@ -16,7 +16,7 @@ namespace
 int main ()
 {
 
-    ResourceManager *RSmanager = ResourceManager::Instance ();
+//    ResourceManager *RSmanager = ResourceManager::Instance ();
 
 
     sf::Window window(sf::VideoMode(800, 600), "My window");

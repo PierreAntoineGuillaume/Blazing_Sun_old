@@ -5,8 +5,8 @@
 #pragma once
 
 #include "../Utility/Typedef.hpp"
-#include "../Utility/Holder.hpp"
-#include "../Utility/point.hpp"
+#include "../Utility/Holder.hpp" //to hold polygons
+#include "../Utility/polygon.hpp" // to holds points
 
 namespace nsEngine
 {
@@ -43,10 +43,10 @@ namespace nsEngine
     {
         friend class Collider_Comparator;
     private:
-        nsUtil::Holder<std::vector<nsUtil::stdpoint>> points;
+        nsUtil::Holder<nsUtil::stdpolygon> points;
     public:
 
-        Polygon (std::vector<nsUtil::stdpoint> ppoints);
+        Polygon (nsUtil::stdpolygon ppoints);
         virtual ~Polygon () noexcept;
     };
 

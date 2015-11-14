@@ -7,7 +7,7 @@ project(${PROJECT_NAME})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Module")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -Wall --pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3 -Wall --pedantic -Wno-comment -Werror")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
@@ -36,12 +36,11 @@ set(SOURCE_FILES
         src/Generic/Utility/point.hpp
         src/Generic/Utility/Holder.hpp
         src/Specific/MACROS.h
-        )
+        src/Generic/Utility/polygon.hpp)
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
-
 SET_TARGET_PROPERTIES(Blazing_Sun PROPERTIES LINKER_LANGUAGE CXX)
 
 set(SFML_ROOT C:/lib/SFML-2.3.2)
