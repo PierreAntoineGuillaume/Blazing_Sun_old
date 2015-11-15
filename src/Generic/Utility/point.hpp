@@ -10,7 +10,8 @@
 #include <type_traits>
 #include <csignal>
 #include <cmath>
-
+#include <memory.h>
+#include <c++/4.8.3/iostream>
 
 
 namespace nsUtil
@@ -31,6 +32,8 @@ namespace nsUtil
         geometric_point (const geometric_point & rvalue);
         ~geometric_point ();
         T& operator[](const size_t & index) noexcept;
+        const T& operator[](const size_t & index) const noexcept;
+
         T absolute_distance() const noexcept;
 
         geometric_point operator+ (const geometric_point & other) const noexcept;
@@ -38,6 +41,8 @@ namespace nsUtil
         geometric_point operator* (unsigned number) const noexcept;
         geometric_point operator/ (unsigned number) const noexcept;
 
+
+        void divided_by (unsigned number) noexcept;
 
         /* Homogeneous coordinates*/
 
@@ -48,9 +53,15 @@ namespace nsUtil
         void operator= (const geometric_point & other) noexcept;
 
         std::array<std::array<T,D+1>,D+1> build_translation_matrix() const noexcept;
-        std::array<std::array<T,D+1>,D+1> build_rotation_matrix() const noexcept;
+        std::array<std::array<T,D+1>,D+1> build_rotation_matrix(T radians) const noexcept;
 
-
+        void display() const noexcept
+        {
+            std::cout << "   ";
+            for (unsigned char i {0};i<=D;++i)
+                std::cout << p[i] << " : ";
+            std::cout << std::endl;
+        }
     };
     typedef geometric_point<COORD_TYPE,COORD_NUMBER> stdpoint;
 
@@ -79,6 +90,7 @@ template <typename T,unsigned char D>
 nsUtil::geometric_point<T,D>::geometric_point ()
 {
     __construct ();
+    memset(p,T(0),D * sizeof(T));
     p[D] = 1;
 }
 
@@ -97,6 +109,14 @@ nsUtil::geometric_point<T,D>::geometric_point (const nsUtil::geometric_point<T,D
 
 template <typename T,unsigned char D>
 T& nsUtil::geometric_point<T,D>::operator[](const size_t & index) noexcept
+{
+    if (index >= D)
+        std::raise (SIGSEGV);
+    return p[index];
+}
+
+template <typename T,unsigned char D>
+const T& nsUtil::geometric_point<T,D>::operator[](const size_t & index) const noexcept
 {
     if (index >= D)
         std::raise (SIGSEGV);
@@ -136,10 +156,18 @@ template <typename T,unsigned char D>
 nsUtil::geometric_point<T,D> nsUtil::geometric_point<T,D>::operator / (unsigned number) const noexcept
 {
     nsUtil::geometric_point<T,D> t = *this;
-    for(unsigned char i {0}; i < D;++i)
-        t.p[i] /= number;
+    t.divided_by(number);
     return t;
 }
+
+template <typename T,unsigned char D>
+void nsUtil::geometric_point<T,D>::divided_by (unsigned number) noexcept
+{
+    for(unsigned char i {0}; i < D;++i)
+        p[i] /= number;
+}
+
+
 
 template <typename T,unsigned char D>
 void nsUtil::geometric_point<T,D>::operator = (const nsUtil::geometric_point<T,D> & other) noexcept
@@ -168,18 +196,23 @@ T nsUtil::geometric_point<T,D>::absolute_distance() const noexcept
 template <typename T, unsigned char D>
 std::array<std::array<T,D+1>,D+1> nsUtil::geometric_point<T,D>::build_translation_matrix() const noexcept
 {
+
     std::array<std::array<T,D+1>,D+1> ref_rvalue;
     //builds up a matrix of size D+1 square
 
-    for (size_t i {0};i < D;++i)
+    //cleanup the matrix : reset all to 0.
+    for (auto &u : ref_rvalue)
+        std::fill(u.begin (),u.end (),T(0));
+
+    for (size_t i {0};i <= D;++i)
     {
         ref_rvalue[i][i] = T(1);
         //fills the diagonal with 1s
-        ref_rvalue[i][D] = p[i];
+        ref_rvalue[D][i] = p[i];
         //sets the right column to p[i]
     }
 
-    ref_rvalue[D][D] = T(1);
+//    ref_rvalue[D][D] = T(1);
     //sets the last element of the matrix to 1
 
     /** Ex : point<int,3> {5,2,3} becomes :
@@ -199,15 +232,88 @@ std::array<std::array<T,D+1>,D+1> nsUtil::geometric_point<T,D>::build_translatio
     return ref_rvalue;
 }
 
-template <typename T, unsigned char D>
-std::array<std::array<T,D+1>,D+1> nsUtil::geometric_point<T,D>::build_rotation_matrix() const noexcept
+template <typename T>
+T msin (T rad)
+{
+    return -sin(rad);
+}
+
+template <typename T,unsigned char D>
+std::array<std::array<T,D+1>,D+1> nsUtil::geometric_point<T,D>::build_rotation_matrix(T radians) const noexcept
 {
 
+    std::array<std::array<T, D + 1>, D + 1> ref_rvalue;
+    //cleanup the matrix : reset all to 0.
+    for (auto &u : ref_rvalue)
+        std::fill(u.begin (),u.end (),T(0));
+
+    if (D == 3)
+    {
+        for (size_t i {0} ; i <= 3 ; ++i)
+            ref_rvalue[i][i] = T (1);
+        if (p[0])
+        {
+
+            ref_rvalue[1][1] = cos (radians);
+            ref_rvalue[1][2] = -sin (radians);
+
+            ref_rvalue[2][1] = sin(radians);
+            ref_rvalue[2][2] = cos (radians);
+
+        }
+        else if (p[1])
+        {
+            ref_rvalue[0][0] = cos(radians);
+            ref_rvalue[0][2] = sin (radians);;
+
+            ref_rvalue[2][0] = -sin(radians);
+            ref_rvalue[2][2] = cos (radians);
+
+        }
+        else if (p[2])
+        {
+            ref_rvalue[0][0] = cos(radians);
+            ref_rvalue[0][1] = -sin (radians);
+
+            ref_rvalue[1][0] = sin (radians);
+            ref_rvalue[1][1] = cos (radians);
+        }
+    }
+    else if (D == 2)
+    {
+        ref_rvalue[0][0] = cos(radians);
+        ref_rvalue[0][1] = -sin (radians);
+
+        ref_rvalue[1][0] = sin (radians);
+        ref_rvalue[1][1] = cos (radians);
+
+        ref_rvalue[2][2] = T(1);
+
+    }
+
+    /**/
+
+
+
+    /**/
+    return ref_rvalue;
 }
 
 /* Homogeneous coordinates*/
 template <typename T,unsigned char D>
-void nsUtil::geometric_point<T,D>::apply_homogenous_coordinates_multiplication (const std::array<std::array<T,D+1>,D+1> & matrix)
+void nsUtil::geometric_point<T,D>::apply_homogenous_coordinates_multiplication (const std::array<std::array<T,D+1>,D+1> & matrix) noexcept
 {
+    geometric_point<T,D> t;
+    t.p[D] = 0;
+    for (unsigned int i {0};i<= D;++i)
+    {
+        for (unsigned int j {0}; j <= D;++j)
+        {
+            t.p[i] += (p[j] * matrix[j][i]);
+        }
+    }
+
+    t.divided_by (t.p[D]);
+    memcpy (p,t.p,(D+1)*sizeof(T));
 
 }
