@@ -44,7 +44,7 @@ int main ()
 //    ResourceManager *RSmanager = ResourceManager::Instance ();
     cout << "test" << endl;
     stdpoint zero {0.f,0.f,0.f};
-    nsUtil::stdpoint p{0.f,2.f};
+    nsUtil::stdpoint p{0.f,2.f,0};
     stdpoint tester  {100.f,200.f};
 
     auto &&m = p.build_translation_matrix ();
@@ -55,7 +55,7 @@ int main ()
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window",sf::Style::Default,settings);
     sf::ConvexShape rect(4);
 
-    stdpoint A{200,200}, B{300,200}, D{200,500}, C{300,500};
+    stdpoint A{200,200,0}, B{300,200,0}, D{200,500,0}, C{300,500,0};
 
     rect.setPoint(0,p2sfp (A));
     rect.setPoint(1,p2sfp (B));
@@ -64,7 +64,7 @@ int main ()
     rect.setFillColor (sf::Color::Red);
 
 //    auto translation = (stdpoint {0.f,10.f}).build_translation_matrix ();
-    auto rotation    = (stdpoint {1.f,0.f}).build_rotation_matrix (0.01f);
+    auto rotation    = (stdpoint {0,0,1}).build_rotation_matrix (0.01f);
 
     printer(rotation.begin(),rotation.end());
 
