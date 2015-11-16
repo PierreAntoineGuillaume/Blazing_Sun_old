@@ -11,7 +11,7 @@
 #include <csignal>
 #include <cmath>
 #include <memory.h>
-#include <c++/4.8.3/iostream>
+#include <iostream>
 
 
 namespace nsUtil
