@@ -122,7 +122,7 @@ int main ()
         window.clear(sf::Color::White);
         // Draw some graphical entities
 
-        stdpoint center = (A + B + C + D)/4;
+        stdpoint center = (A + B + C + D +E + F + G + H)/8;
         stdpoint reverse = zero - center;
 
 
