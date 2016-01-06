@@ -36,7 +36,7 @@ set(SOURCE_FILES
         src/Generic/Utility/point.hpp
         src/Generic/Utility/Holder.hpp
         src/Specific/MACROS.h
-        src/Generic/Utility/polygon.hpp)
+        src/Generic/Utility/polygon.hpp src/Generic/ResourceManager/Ressource.cpp src/Generic/ResourceManager/Ressource.h)
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 

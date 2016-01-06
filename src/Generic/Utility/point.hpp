@@ -7,11 +7,10 @@
 #pragma once
 
 #include "../../Specific/MACROS.h"
-#include <type_traits>
-#include <csignal>
-#include <cmath>
-#include <memory.h>
-#include <c++/4.8.3/iostream>
+#include <type_traits>//
+#include <csignal>//sigsegv
+#include <cmath>//matrix
+#include <memory.h>//memset
 
 
 namespace nsUtil
@@ -55,13 +54,6 @@ namespace nsUtil
         std::array<std::array<T,D+1>,D+1> build_translation_matrix() const noexcept;
         std::array<std::array<T,D+1>,D+1> build_rotation_matrix(T radians) const noexcept;
 
-        void display() const noexcept
-        {
-            std::cout << "   ";
-            for (unsigned char i {0};i<=D;++i)
-                std::cout << p[i] << " : ";
-            std::cout << std::endl;
-        }
     };
     typedef geometric_point<COORD_TYPE,COORD_NUMBER> stdpoint;
 

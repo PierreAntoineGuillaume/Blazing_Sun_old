@@ -51,8 +51,9 @@ int main ()
     tester.apply_homogenous_coordinates_multiplication (m);
 
     sf::ContextSettings settings(0,0,16);
-    /**/
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window",sf::Style::Default,settings);
+
+    /**/
     sf::ConvexShape rect1(4);
     sf::ConvexShape rect2(4);
     sf::ConvexShape rect3(4);
