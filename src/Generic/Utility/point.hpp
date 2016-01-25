@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <iostream>
 #include "../../Specific/MACROS.h"
 #include <type_traits>//
 #include <csignal>//sigsegv

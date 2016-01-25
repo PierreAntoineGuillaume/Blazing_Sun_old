@@ -6,14 +6,16 @@
 
 //
 
+#include "Ressource.h"
+
 namespace
 {
 
-    class Ressource
+    class CompositeRessource : public Ressource
     {
     public:
-        Ressource ();
-        virtual void Load ();
+        CompositeRessource ();
+        virtual void Load () override;
     private:
 
     protected:

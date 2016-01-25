@@ -3,3 +3,13 @@
 //
 
 #include "Ressource.h"
+
+
+void Ressource::Load(){
+
+}
+
+Ressource::Ressource ()
+{
+
+}

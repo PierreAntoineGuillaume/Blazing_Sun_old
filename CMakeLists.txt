@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
 
-
 set(PROJECT_NAME Blazing_Sun)
 
 project(${PROJECT_NAME})
@@ -36,7 +35,14 @@ set(SOURCE_FILES
         src/Generic/Utility/point.hpp
         src/Generic/Utility/Holder.hpp
         src/Specific/MACROS.h
-        src/Generic/Utility/polygon.hpp src/Generic/ResourceManager/Ressource.cpp src/Generic/ResourceManager/Ressource.h)
+        src/Generic/Utility/polygon.hpp
+        src/Generic/ResourceManager/Ressource.cpp
+        src/Generic/ResourceManager/Ressource.h
+        src/Generic/ResourceManager/CompositeRessource.cpp
+        src/Generic/ResourceManager/CompositeRessource.h
+        src/Generic/ResourceManager/RessourceDescriptor.cpp
+        src/Generic/ResourceManager/RessourceDescriptor.h)
+
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 
