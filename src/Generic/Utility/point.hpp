@@ -54,6 +54,13 @@ namespace nsUtil
         std::array<std::array<T,D+1>,D+1> build_translation_matrix() const noexcept;
         std::array<std::array<T,D+1>,D+1> build_rotation_matrix(T radians) const noexcept;
 
+        void display() const noexcept
+        {
+            std::cout << "   ";
+            for (unsigned char i {0};i<=D;++i)
+                std::cout << p[i] << " : ";
+            std::cout << std::endl;
+        }
     };
     typedef geometric_point<COORD_TYPE,COORD_NUMBER> stdpoint;
 
