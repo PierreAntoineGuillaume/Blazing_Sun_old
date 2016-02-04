@@ -28,8 +28,8 @@ public:
     /** Updates the animation loop */
     void update(sf::Time deltaTime);
 
-    /** Draws the current animation on the target */
-    void render(sf::RenderTarget& target);
+    /** Draws the current animation on the target, at a specific position */
+    void render(sf::RenderTarget& target, float x, float y);
 
     /** Changes the loop (Animation object) */
     void setAnimation(Animation &animation);

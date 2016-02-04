@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Animator.h"
 
 Animator::Animator(sf::Time frameTime, bool paused, bool looped) :
@@ -26,7 +27,7 @@ void Animator::update(sf::Time deltaTime)
             {
                 // animation has ended
                 currentFrame = 0; // reset to start
-
+                //if the animation is not looped, we stops there
                 if (!looped)
                 {
                     paused = true;
@@ -36,11 +37,13 @@ void Animator::update(sf::Time deltaTime)
     }
 }
 
-void Animator::render(sf::RenderTarget& target)
+void Animator::render(sf::RenderTarget &target, float x, float y)
 {
     if (animation && texture)
     {
-        target.draw(animation->getSprite(currentFrame));
+        sf::Sprite sprite = animation->getSprite(currentFrame);
+        sprite.setPosition(x, y);
+        target.draw(sprite);
     }
 }
 
@@ -48,7 +51,6 @@ void Animator::setAnimation(Animation &anim)
 {
     this->animation = &anim;
     this->texture = this->animation->getSpriteSheet();
-    this->currentFrame = 0;
 }
 
 void Animator::play()

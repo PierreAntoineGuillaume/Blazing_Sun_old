@@ -41,7 +41,9 @@ set(SOURCE_FILES
         src/Generic/ResourceManager/CompositeRessource.cpp
         src/Generic/ResourceManager/CompositeRessource.h
         src/Generic/ResourceManager/RessourceDescriptor.cpp
-        src/Generic/ResourceManager/RessourceDescriptor.h src/Generic/ResourceManager/Animation.cpp src/Generic/ResourceManager/Animation.h)
+        src/Generic/ResourceManager/RessourceDescriptor.h
+        src/Generic/ResourceManager/Animation.cpp
+        src/Generic/ResourceManager/Animation.h )
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
