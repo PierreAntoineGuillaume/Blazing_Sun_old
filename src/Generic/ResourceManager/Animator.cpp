@@ -1,8 +1,7 @@
 #include "Animator.h"
 
 Animator::Animator(sf::Time frameTime, bool paused, bool looped) :
-        animation(NULL), frametime(frameTime), currentFrame(0), paused(paused), looped(looped),
-        texture(NULL)
+        texture(NULL), animation(NULL), frametime(frameTime), currentFrame(0), paused(paused), looped(looped)
 { }
 
 /** Updates the current frame id */
@@ -28,7 +27,7 @@ void Animator::update(sf::Time deltaTime)
                 // animation has ended
                 currentFrame = 0; // reset to start
 
-                if (!isLooped)
+                if (!looped)
                 {
                     paused = true;
                 }
