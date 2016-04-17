@@ -7,6 +7,7 @@
 
 #include "Generic/ResourceManager/ResourceManager.h"
 #include "Generic/Utility/point.hpp"
+#include "Generic/GameObject/GameObjectFactory.h"
 
 
 using namespace std;
@@ -345,11 +346,21 @@ namespace
 
         return 0;
     }
+
+    int testFactory() {
+        GameObjectFactory factory;
+
+        GameObject *object = factory.createGameObject(GameObjectFactory::GO::PLAYER);
+        object->onCreate();
+
+        return 0;
+    }
 }
 
 
 int main()
 {
-//    return trukkitourne();
-    return testAnimator();
+    //return trukkitourne();
+    //return testAnimator();
+    return testFactory();
 }

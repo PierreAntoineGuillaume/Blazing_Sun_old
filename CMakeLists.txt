@@ -43,7 +43,7 @@ set(SOURCE_FILES
         src/Generic/ResourceManager/RessourceDescriptor.cpp
         src/Generic/ResourceManager/RessourceDescriptor.h
         src/Generic/ResourceManager/Animation.cpp
-        src/Generic/ResourceManager/Animation.h )
+        src/Generic/ResourceManager/Animation.h src/Generic/GameObject/Player.h src/Generic/GameObject/Player.cpp src/Generic/GameObject/GameObjectFactory.h src/Generic/GameObject/GameObjectFactory.cpp src/Generic/GameObject/Character.h src/Generic/GameObject/Decoration.h src/Generic/GameObject/Entity.h src/Generic/GameObject/Foreground.h src/Generic/GameObject/Interface.h src/Generic/GameObject/Character.cpp src/Generic/GameObject/Decoration.cpp src/Generic/GameObject/Entity.cpp src/Generic/GameObject/Foreground.cpp src/Generic/GameObject/Interface.cpp)
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
@@ -58,3 +58,4 @@ if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
 endif(SFML_FOUND)
+MESSAGE (WARNING "${Blazing_Sun_BINARY_DIR}")
