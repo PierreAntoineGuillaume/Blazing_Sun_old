@@ -1,11 +1,12 @@
 #include "Server.h"
 
+#include <list>
+#include <iostream>
+
+
 Server::Server(){}
 
-sf::TcpListener listener;
-sf::SelectorTCP selector;
-sf::SocketTCP socket;
-std::list<sf::TcpSocket*> clients;
+
 
 
 
@@ -15,12 +16,15 @@ void Server::serverStart(int numPort){
         std::cout << "Bad port";
     }
     else
-        selector.Add(listener);
+    {
+        //selector.Add(listener);
+    }
+
 
 }
 
 void Server::acceptConnection(){
-
+    /** /
     while (true){
         unsigned int nbSocket = selector.Wait();
 
@@ -28,11 +32,11 @@ void Server::acceptConnection(){
             socket = selector.GetSocketReady(i);
 
             if(socket == listener){
-                sf::IPAddress address;
-                sf::SocketTCP client;
+                sf::TcpSocket client;
 
-                listener.accept(client, &address);
-                std::cout << "Client connected (" << address << ")" << std::endl;
+                listener.accept(client);
+                std::cout << "Client connected ("
+                << client.getRemoteAddress () << ")" << std::endl;
                 clients.push_back(client);
                 selector.add(client);
             }
@@ -41,10 +45,12 @@ void Server::acceptConnection(){
             }
         }
     }
-
+    /**/
 }
 
 void Server::transmitData(){
+
+    /** /
     sf::Packet packet;
 
     if (socket.receive(packet) == sf::Socket::Done){
@@ -54,5 +60,6 @@ void Server::transmitData(){
     }
     else
         selector.remove(socket);
+    /**/
 }
 
