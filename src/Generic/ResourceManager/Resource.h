@@ -9,10 +9,10 @@
 namespace nsRS
 {
 
-    class Ressource
+    class Resource
     {
     public:
-        Ressource ();
+        Resource ();
         virtual void Load ();
     private:
 

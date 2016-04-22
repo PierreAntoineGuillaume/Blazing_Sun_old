@@ -11,10 +11,10 @@
 namespace nsRS
 {
 
-    class RessourceDescriptor
+    class ResourceDescriptor
     {
     public:
-        RessourceDescriptor ();
+        ResourceDescriptor ();
 
     private:
 

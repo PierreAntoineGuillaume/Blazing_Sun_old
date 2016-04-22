@@ -36,14 +36,32 @@ set(SOURCE_FILES
         src/Generic/Utility/Holder.hpp
         src/Specific/MACROS.h
         src/Generic/Utility/polygon.hpp
-        src/Generic/ResourceManager/Ressource.cpp
-        src/Generic/ResourceManager/Ressource.h
-        src/Generic/ResourceManager/CompositeRessource.cpp
-        src/Generic/ResourceManager/CompositeRessource.h
-        src/Generic/ResourceManager/RessourceDescriptor.cpp
-        src/Generic/ResourceManager/RessourceDescriptor.h
+        src/Generic/ResourceManager/Resource.cpp
+        src/Generic/ResourceManager/Resource.h
+        src/Generic/ResourceManager/CompositeResource.cpp
+        src/Generic/ResourceManager/CompositeResource.h
+        src/Generic/ResourceManager/ResourceDescriptor.cpp
+        src/Generic/ResourceManager/ResourceDescriptor.h
         src/Generic/ResourceManager/Animation.cpp
-        src/Generic/ResourceManager/Animation.h src/Generic/GameObject/Player.h src/Generic/GameObject/Player.cpp src/Generic/GameObject/GameObjectFactory.h src/Generic/GameObject/GameObjectFactory.cpp src/Generic/GameObject/Character.h src/Generic/GameObject/Decoration.h src/Generic/GameObject/Entity.h src/Generic/GameObject/Foreground.h src/Generic/GameObject/Interface.h src/Generic/GameObject/Character.cpp src/Generic/GameObject/Decoration.cpp src/Generic/GameObject/Entity.cpp src/Generic/GameObject/Foreground.cpp src/Generic/GameObject/Interface.cpp src/Generic/Network/Client.cpp src/Generic/Network/Client.h src/Generic/Network/Server.cpp src/Generic/Network/Server.h)
+        src/Generic/ResourceManager/Animation.h
+        src/Generic/GameObject/Player.h
+        src/Generic/GameObject/Player.cpp
+        src/Generic/GameObject/GameObjectFactory.h
+        src/Generic/GameObject/GameObjectFactory.cpp
+        src/Generic/GameObject/Character.h
+        src/Generic/GameObject/Decoration.h
+        src/Generic/GameObject/Entity.h
+        src/Generic/GameObject/Foreground.h
+        src/Generic/GameObject/Interface.h
+        src/Generic/GameObject/Character.cpp
+        src/Generic/GameObject/Decoration.cpp
+        src/Generic/GameObject/Entity.cpp
+        src/Generic/GameObject/Foreground.cpp
+        src/Generic/GameObject/Interface.cpp
+        src/Generic/Network/Client.cpp
+        src/Generic/Network/Client.h
+        src/Generic/Network/Server.cpp
+        src/Generic/Network/Server.h)
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 

@@ -6,15 +6,15 @@
 
 //
 
-#include "Ressource.h"
+#include "Resource.h"
 
 namespace nsRS
 {
 
-    class CompositeRessource : public Ressource
+    class CompositeResource : public Resource
     {
     public:
-        CompositeRessource ();
+        CompositeResource ();
         virtual void Load () override;
     private:
 
