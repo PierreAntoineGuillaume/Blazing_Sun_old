@@ -3,6 +3,7 @@
 Client::Client(){}
 
 sf::TcpSocket socket;
+sf::Packet packet;
 
 void Client::connect(sf::IpAddress ipAddress, int numPort){
     sf::Socket::Status status = socket.connect(ipAddress, numPort);
@@ -13,9 +14,15 @@ void Client::connect(sf::IpAddress ipAddress, int numPort){
 
 void Client::sendData(char data[]){
     if(!socket.send(data, data.size())){
-        std::cout << "Erreur d'envoi" << std::endl;
+        std::cout << "Sending error" << std::endl;
     }
 }
 
+void Client::receiveData() {
+    if (socket.receive(packet) == sf::Socket::Done) {
+        packet.analyse();
+    }
+}
 
+//TODO : analyse() depends of the user's will
 

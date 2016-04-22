@@ -19,5 +19,10 @@ public:
      */
     void sendData(char data[]);
 
+    /*
+     * gets the server's data and call the treatment function
+     */
+    void receiveData();
+
 };
 
