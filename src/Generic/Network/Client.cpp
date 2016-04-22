@@ -1,26 +1,43 @@
+
 #include "Client.h"
+
+#include <iostream>
 
 Client::Client(){}
 
 sf::TcpSocket socket;
-sf::Packet packet;
 
-void Client::connect(sf::IpAddress ipAddress, int numPort){
+namespace nsNetwork
+{
+    class packet : public sf::Packet
+    {
+    public:
+        void process () {
+
+        }
+    };
+}
+
+nsNetwork::packet packet;
+
+
+void Client::connect(const sf::IpAddress & ipAddress, unsigned short numPort){
     sf::Socket::Status status = socket.connect(ipAddress, numPort);
     if(status != sf::Socket::Done){
-        cout << "Bad ip or port";
+        std::cout << "Bad ip or port";
     }
 }
 
-void Client::sendData(char data[]){
-    if(!socket.send(data, data.size())){
+void Client::sendData(const std::string & data){
+    if(!socket.send(data.c_str(), data.size())){
         std::cout << "Sending error" << std::endl;
     }
 }
 
 void Client::receiveData() {
     if (socket.receive(packet) == sf::Socket::Done) {
-        packet.analyse();
+
+        packet.process();
     }
 }
 
