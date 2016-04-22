@@ -8,7 +8,7 @@
 
 //
 
-namespace
+namespace nsRS
 {
 
     class RessourceDescriptor

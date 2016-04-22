@@ -6,7 +6,7 @@
 
 //
 
-namespace
+namespace nsRS
 {
 
     class Ressource

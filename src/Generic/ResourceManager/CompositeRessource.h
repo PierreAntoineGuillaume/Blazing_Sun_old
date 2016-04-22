@@ -8,7 +8,7 @@
 
 #include "Ressource.h"
 
-namespace
+namespace nsRS
 {
 
     class CompositeRessource : public Ressource

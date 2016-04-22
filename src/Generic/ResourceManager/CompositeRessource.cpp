@@ -4,11 +4,11 @@
 
 #include "CompositeRessource.h"
 
-CompositeRessource::CompositeRessource(){
+nsRS::CompositeRessource::CompositeRessource(){
 
 }
 
-void CompositeRessource::Load ()
+void nsRS::CompositeRessource::Load ()
 {
 
 }

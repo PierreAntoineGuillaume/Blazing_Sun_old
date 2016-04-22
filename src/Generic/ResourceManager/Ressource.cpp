@@ -5,11 +5,11 @@
 #include "Ressource.h"
 
 
-void Ressource::Load(){
+void nsRS::Ressource::Load(){
 
 }
 
-Ressource::Ressource ()
+nsRS::Ressource::Ressource ()
 {
 
 }

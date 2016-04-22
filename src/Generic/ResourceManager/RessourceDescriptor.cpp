@@ -3,6 +3,6 @@
 //
 
 #include "RessourceDescriptor.h"
-RessourceDescriptor::RessourceDescriptor(){
+nsRS::RessourceDescriptor::RessourceDescriptor(){
 
 }
