@@ -1,10 +1,10 @@
 #include"GameObjectFactory.h"
-#include "Player.h"
-#include "Interface.h"
-#include "Character.h"
-#include "Entity.h"
-#include "Decoration.h"
-#include "Foreground.h"
+#include "../GameObject/Player.h"
+#include "../GameObject/Interface.h"
+#include "../GameObject/Character.h"
+#include "../GameObject/Entity.h"
+#include "../GameObject/Decoration.h"
+#include "../GameObject/Foreground.h"
 
 
 

@@ -7,7 +7,7 @@
 
 #include "Generic/ResourceManager/ResourceManager.h"
 #include "Generic/Utility/point.hpp"
-#include "Generic/GameObject/GameObjectFactory.h"
+#include "Generic/Engine/GameObjectFactory.h"
 
 
 using namespace std;
@@ -40,7 +40,6 @@ namespace
     {
 
 //    ResourceManager *RSmanager = ResourceManager::Instance ();
-        cout << "test" << endl;
         stdpoint zero{0.f, 0.f, 0.f};
         nsUtil::stdpoint p{0.f, 2.f, 0};
         stdpoint tester{100.f, 200.f};
@@ -67,38 +66,61 @@ namespace
         rect1.setPoint(1, p2sfp(B));
         rect1.setPoint(2, p2sfp(C));
         rect1.setPoint(3, p2sfp(D));
-        rect1.setFillColor(sf::Color::Red);
 
         rect2.setPoint(0, p2sfp(A));
         rect2.setPoint(1, p2sfp(B));
         rect2.setPoint(2, p2sfp(F));
         rect2.setPoint(3, p2sfp(E));
-        rect2.setFillColor(sf::Color::Red);
 
         rect3.setPoint(0, p2sfp(C));
         rect3.setPoint(1, p2sfp(D));
         rect3.setPoint(2, p2sfp(H));
         rect3.setPoint(3, p2sfp(G));
-        rect3.setFillColor(sf::Color::Red);
+
 
         rect4.setPoint(0, p2sfp(A));
         rect4.setPoint(1, p2sfp(C));
         rect4.setPoint(2, p2sfp(G));
         rect4.setPoint(3, p2sfp(E));
-        rect4.setFillColor(sf::Color::Red);
+
 
         rect5.setPoint(0, p2sfp(E));
         rect5.setPoint(1, p2sfp(F));
         rect5.setPoint(2, p2sfp(H));
         rect5.setPoint(3, p2sfp(G));
-        rect5.setFillColor(sf::Color::Red);
+
 
         rect6.setPoint(0, p2sfp(B));
         rect6.setPoint(1, p2sfp(D));
         rect6.setPoint(2, p2sfp(H));
         rect6.setPoint(3, p2sfp(F));
-        rect6.setFillColor(sf::Color::Red);
 
+        /**/
+        rect1.setFillColor(sf::Color::Red);
+        rect2.setFillColor(sf::Color::Red);
+        rect3.setFillColor(sf::Color::Red);
+        rect4.setFillColor(sf::Color::Red);
+        rect5.setFillColor(sf::Color::Red);
+        rect6.setFillColor(sf::Color::Red);
+        /** /
+        rect1.setOutlineThickness (1);
+        rect1.setOutlineColor (sf::Color::Black);
+
+        rect2.setOutlineThickness (1);
+        rect2.setOutlineColor (sf::Color::Black);
+
+        rect3.setOutlineThickness (1);
+        rect3.setOutlineColor (sf::Color::Black);
+
+        rect4.setOutlineThickness (1);
+        rect4.setOutlineColor (sf::Color::Black);
+
+        rect5.setOutlineThickness (1);
+        rect5.setOutlineColor (sf::Color::Black);
+
+        rect6.setOutlineThickness (1);
+        rect6.setOutlineColor (sf::Color::Black);
+        /**/
 
         auto rotation1 = (stdpoint {0, 0, 1}).build_rotation_matrix(0.01f);
         auto rotation2 = (stdpoint {0, 1, 0}).build_rotation_matrix(0.01f);
@@ -360,7 +382,7 @@ namespace
 
 int main()
 {
-    //return trukkitourne();
+    return trukkitourne();
     //return testAnimator();
-    return testFactory();
+    //return testFactory();
 }

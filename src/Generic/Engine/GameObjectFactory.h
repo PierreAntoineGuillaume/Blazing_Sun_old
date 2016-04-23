@@ -1,7 +1,7 @@
 #ifndef BLAZING_SUN_GAMEOBJECTFACTORY_H
 #define BLAZING_SUN_GAMEOBJECTFACTORY_H
 
-#include "GameObject.h"
+#include "../GameObject/GameObject.h"
 
 class GameObjectFactory
 {

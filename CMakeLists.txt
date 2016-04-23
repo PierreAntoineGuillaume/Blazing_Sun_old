@@ -46,8 +46,8 @@ set(SOURCE_FILES
         src/Generic/ResourceManager/Animation.h
         src/Generic/GameObject/Player.h
         src/Generic/GameObject/Player.cpp
-        src/Generic/GameObject/GameObjectFactory.h
-        src/Generic/GameObject/GameObjectFactory.cpp
+        src/Generic/Engine/GameObjectFactory.h
+        src/Generic/Engine/GameObjectFactory.cpp
         src/Generic/GameObject/Character.h
         src/Generic/GameObject/Decoration.h
         src/Generic/GameObject/Entity.h
