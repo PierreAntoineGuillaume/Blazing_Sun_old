@@ -7,6 +7,7 @@ class Player : public Character
 {
 private:
 public:
+    virtual bool collides (const nsInterfaces::Collidable & other) const noexcept;
     void serialise   ();
     void deserialise ();
     void onCreate    ();

@@ -243,7 +243,8 @@ namespace
 
         return 0;
     }
-
+    /**/
+    /** /
 
     int testAnimator()
     {
@@ -368,7 +369,8 @@ namespace
 
         return 0;
     }
-
+    /**/
+    /** /
     int testFactory() {
         GameObjectFactory factory;
 
@@ -377,6 +379,7 @@ namespace
 
         return 0;
     }
+    /**/
 }
 
 

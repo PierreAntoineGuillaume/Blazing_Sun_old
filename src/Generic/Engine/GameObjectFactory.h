@@ -7,7 +7,7 @@ class GameObjectFactory
 {
 private:
 public:
-    enum GO {PLAYER, CHARACTER, DECORATION, ENTITY, FOREGROUND, INTERFACE};
+    enum GO {PLAYER, FOREGROUND};
     //GameObjectFactory();
     GameObject *createGameObject(GO objet);
 };

@@ -27,8 +27,8 @@ set(SOURCE_FILES
         src/Generic/Engine/Movement.h
         src/Generic/Utility/Typedef.hpp
         src/Generic/Utility/TypeComparisonStruct.hpp
-        src/Generic/Utility/GameException.cpp
-        src/Generic/Utility/GameException.h
+        src/Generic/Utility/exception/GameException.cpp
+        src/Generic/Utility/exception/GameException.h
         src/Generic/Engine/Interfaces/Collidable.h
         src/Generic/Engine/Collider.cpp
         src/Generic/Engine/Collider.h
@@ -52,16 +52,14 @@ set(SOURCE_FILES
         src/Generic/GameObject/Decoration.h
         src/Generic/GameObject/Entity.h
         src/Generic/GameObject/Foreground.h
-        src/Generic/GameObject/Interface.h
         src/Generic/GameObject/Character.cpp
         src/Generic/GameObject/Decoration.cpp
         src/Generic/GameObject/Entity.cpp
         src/Generic/GameObject/Foreground.cpp
-        src/Generic/GameObject/Interface.cpp
         src/Generic/Network/Client.cpp
         src/Generic/Network/Client.h
         src/Generic/Network/Server.cpp
-        src/Generic/Network/Server.h)
+        src/Generic/Network/Server.h src/Generic/Utility/exception/invalid_gameobject.cpp src/Generic/Utility/exception/invalid_gameobject.h)
 
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 

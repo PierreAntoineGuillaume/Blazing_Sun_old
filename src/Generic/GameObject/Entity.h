@@ -2,8 +2,9 @@
 #define BLAZING_SUN_ENTITY_H
 
 #include "GameObject.h"
+#include "../Engine/Interfaces/Collidable.h"
 
-class Entity : public GameObject
+class Entity : public GameObject, public nsInterfaces::Collidable
 {
 private:
 public:

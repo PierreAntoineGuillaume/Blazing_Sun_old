@@ -30,3 +30,9 @@ void::Decoration::render()
 {
 
 }
+
+bool Decoration::collides (const nsInterfaces::Collidable & other) const noexcept
+{
+    return false;
+}
+

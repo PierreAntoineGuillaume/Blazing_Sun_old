@@ -30,3 +30,9 @@ void::Player::render()
 {
 
 }
+
+bool Player::collides (const nsInterfaces::Collidable & other) const noexcept
+{
+    return false;
+}
+
