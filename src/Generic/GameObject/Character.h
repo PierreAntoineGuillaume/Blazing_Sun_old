@@ -2,9 +2,10 @@
 #ifndef BLAZING_SUN_CHARACTER_H
 #define BLAZING_SUN_CHARACTER_H
 
-#include "GameObject.h"
 
-class Character : public GameObject
+#include "Entity.h"
+
+class Character : public Entity
 {
 private:
 public:

@@ -1,9 +1,9 @@
 #ifndef BLAZING_SUN_FOREGROUND_H
 #define BLAZING_SUN_FOREGROUND_H
 
-#include "GameObject.h"
+#include "Decoration.h"
 
-class Foreground : public GameObject
+class Foreground : public Decoration
 {
 private:
 public:

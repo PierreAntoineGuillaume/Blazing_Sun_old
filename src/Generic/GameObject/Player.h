@@ -1,9 +1,9 @@
 #ifndef BLAZING_SUN_PLAYER_H
 #define BLAZING_SUN_PLAYER_H
 
-#include "GameObject.h"
+#include "Character.h"
 
-class Player : public GameObject
+class Player : public Character
 {
 private:
 public:
